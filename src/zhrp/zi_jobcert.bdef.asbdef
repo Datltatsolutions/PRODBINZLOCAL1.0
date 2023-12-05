@@ -1,0 +1,22 @@
+managed implementation in class zbp_i_jobcert unique;
+
+define behavior for ZI_JOBCERT alias JobCertificate
+persistent table ztjobcert
+etag master last_changed_at
+lock master
+{
+  field ( readonly, numbering : managed ) mykey;
+  field ( mandatory: create, readonly : update ) jobid, certid;
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by, jobname, certname;
+
+  create;
+  update;
+  delete;
+
+  // validations
+  validation validateJob on save { field jobid; }
+  validation validateCertificate on save { field certid; }
+  validation validateUniqueIDs on save { field jobid, certid; }
+  determination JobNameUpdate on save {field jobid;}
+  determination CertNameUpdate on save {field certid;}
+}

@@ -1,0 +1,47 @@
+managed implementation in class zbp_i_task unique;
+//with draft;
+define behavior for ZI_TASK alias Task
+persistent table ztask
+//draft table zdrtask
+lock master// total etag last_changed_at
+etag master last_changed_at
+late numbering
+{
+  create;
+  update;
+  delete;
+
+  field (readonly) taskid, last_changed_at, last_modify, created_at, created_by;
+  field (mandatory: create) assignemp, booprocess, booproductid;
+  // validations
+  determination CalculateKeyTaskID on modify { field taskid; }
+  mapping for ztask
+  {
+      TaskID = taskid;
+      Tags = tags;
+      Description = description;
+      TaskFrom = taskfrom;
+      AssignEmp = assignemp;
+      DocumentType = documenttype;
+      DocumentID = documentid;
+      booproductid = booproductid;
+      booprocess = booprocess;
+      TaskStartDate = taskstartdate;
+      TaskDeadline = taskdeadline;
+      FinishDate = finishdate;
+      EstimateTime = estimatetime;
+      WorkingTime = workingtime;
+      Duration = duration;
+      Priority = priority;
+      Status = status;
+      Progress = progress;
+      TaskComment = taskcomment;
+      Approvedby = approvedby;
+      Relatedtask = relatedtask;
+
+      Created_At = created_at;
+      Last_Changed_At = last_changed_at;
+      Created_By = Created_by;
+      Last_modify = last_modify;
+  }
+}

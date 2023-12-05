@@ -1,0 +1,15 @@
+managed implementation in class zbp_i_skill unique;
+
+define behavior for ZI_SKILL alias Skill
+persistent table ztskill
+etag master last_changed_at
+lock master
+{
+  field ( readonly:update ) skillid;
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by;
+  field ( mandatory ) skillname;
+
+  create;
+  update;
+  delete;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Certificate'
+define service ZUI_C_CERTIFICATE {
+  expose ZC_CERTIFICATE as CertificateProcessor;
+}

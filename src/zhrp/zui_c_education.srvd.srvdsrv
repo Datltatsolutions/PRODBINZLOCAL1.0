@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Education'
+define service ZUI_C_EDUCATION {
+  expose ZC_EDUCATION as EducationProcessor;
+}

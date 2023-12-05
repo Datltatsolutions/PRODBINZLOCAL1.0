@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Job'
+define service ZUI_C_JOB {
+  expose ZC_JOB                  as JobProcessor;
+  expose ZI_READ_FUNCTION_DOMAIN;
+}

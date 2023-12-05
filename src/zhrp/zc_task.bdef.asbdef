@@ -1,0 +1,10 @@
+projection;
+//use draft;
+//strict ( 2 );
+
+define behavior for ZC_TASK alias Task
+{
+  use create;
+  use update;
+  use delete;
+}

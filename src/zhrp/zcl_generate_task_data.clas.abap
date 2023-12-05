@@ -1,0 +1,20 @@
+CLASS zcl_generate_task_data DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    INTERFACES if_oo_adt_classrun.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+
+
+CLASS ZCL_GENERATE_TASK_DATA IMPLEMENTATION.
+
+
+    METHOD if_oo_adt_classrun~main.
+       DELETE FROM ztask.
+    ENDMETHOD.
+ENDCLASS.

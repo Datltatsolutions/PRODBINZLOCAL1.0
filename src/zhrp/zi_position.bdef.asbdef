@@ -1,0 +1,20 @@
+managed implementation in class zbp_i_position unique;
+
+define behavior for ZI_POSITION alias Position
+persistent table ztposition
+etag master last_changed_at
+lock master
+{
+  field ( mandatory : create, readonly : update ) posid;
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by;
+  field ( mandatory : create ) posjobid, posempid, posorgid;
+
+  create;
+  update;
+  delete;
+
+  validation validateJob on save { field posjobid; }
+  validation validateEmployee on save { field posempid; }
+  validation validateOrg on save { field posorgid; }
+  validation validateUniqueIDs on save { field posjobid, posempid, posorgid; }
+}

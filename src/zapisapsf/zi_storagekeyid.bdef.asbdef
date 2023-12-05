@@ -1,0 +1,18 @@
+managed implementation in class zbp_i_storagekeyid unique;
+//strict ( 2 );
+
+define behavior for ZI_STORAGEKEYID alias StorageKeyID
+persistent table ztstoragekeyid
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+
+  field ( mandatory:create) sapid, bussinesspartnerid, s4hckey, pathurlkey;
+  field ( readonly ) created_at;
+
+  create;
+  update;
+  delete;
+
+}

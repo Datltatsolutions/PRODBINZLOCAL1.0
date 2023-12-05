@@ -1,0 +1,15 @@
+managed implementation in class zbp_i_education unique;
+
+define behavior for ZI_EDUCATION alias Education
+persistent table zteducation
+etag master last_changed_at
+lock master
+{
+  field ( mandatory:create, readonly:update ) eduid;
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by;
+  field ( mandatory:create ) eduname;
+
+  create;
+  update;
+  delete;
+}

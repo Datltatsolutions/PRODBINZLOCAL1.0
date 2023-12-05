@@ -1,0 +1,14 @@
+managed implementation in class zbp_i_org unique;
+
+define behavior for ZI_ORG alias OrgUnit
+persistent table ztorg
+etag master last_changed_at
+lock master
+{
+  field ( mandatory: create , readonly : update ) orgunitid;
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by;
+
+  create;
+  update;
+  delete;
+}

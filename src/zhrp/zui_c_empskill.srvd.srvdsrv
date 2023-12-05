@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Definition for Employee Skill'
+define service ZUI_C_EMPSKILL {
+  expose ZC_EMPSKILL              as EmpSkillProcessor;
+  expose ZI_EMPLOYEE              as Employee;
+  expose ZI_SKILL                 as Skill;
+  expose ZI_READ_LEVELNUM5_DOMAIN;
+}

@@ -1,0 +1,24 @@
+managed implementation in class zbp_i_employee unique;
+
+define behavior for ZI_EMPLOYEE alias Employee
+persistent table ztemployee
+etag master last_changed_at
+lock master
+{
+  field ( mandatory:create, readonly:update ) empid;
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by;
+  field ( mandatory:create ) emppersid, empfirstname, emplastname;
+
+  create;
+  update;
+  delete;
+
+  // validations
+  validation validateDropdownFields on save { field empgender, emptitle, empmarital,
+                                              emporgunit, empagreement; }
+  validation validateCountry on save { field empcountry; }
+  validation validateNumberFields on save { field emppersid, empssn, emphours,
+                                            empprivatephone, empcommphone, empmobilephone; }
+  validation validateEmail on save { field empemail; }
+  validation validateNameFields on save { field empfirstname, emplastname; }
+}

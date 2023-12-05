@@ -1,0 +1,17 @@
+managed implementation in class zbp_i_job unique;
+
+define behavior for ZI_JOB alias Job
+persistent table ztjob
+etag master last_changed_at
+lock master
+{
+  field ( readonly:update ) jobid;
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by;
+  field ( mandatory:create ) jobname;
+
+  create;
+  update;
+  delete;
+
+  validation validateFunction on save { field jobfunction; }
+}

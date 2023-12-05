@@ -1,0 +1,24 @@
+managed implementation in class zbp_i_jobskill unique;
+
+define behavior for ZI_JOBSKILL alias JobSkill
+persistent table ztjobskill
+etag master last_changed_at
+lock master
+{
+  field ( readonly, numbering : managed ) mykey;
+  field ( mandatory: create, readonly:update ) jobid, skillid;
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by, jobname, skillname;
+
+  create;
+  update;
+  delete;
+
+  // validations
+  validation validateJob on save { field jobid; }
+  validation validateSkill on save { field skillid; }
+  validation validateUniqueIDs on save { field jobid, skillid; }
+  validation validateLevelFields on save { field skilllevel, skillcoefficient, skilllevel1,
+                                           skilllevel2, skilllevel3, skilllevel4, skilllevel5; }
+  determination JobNameUpdate on save{field jobid;}
+  determination SkillNameUpdate on save{field skillid;}
+}

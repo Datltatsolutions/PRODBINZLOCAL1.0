@@ -1,0 +1,15 @@
+managed implementation in class zbp_i_certificate unique;
+
+define behavior for ZI_CERTIFICATE alias Certificate
+persistent table ztcertificate
+etag master last_changed_at
+lock master
+{
+  field ( readonly:update ) certid;
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by;
+  field ( mandatory ) certname;
+
+  create;
+  update;
+  delete;
+}

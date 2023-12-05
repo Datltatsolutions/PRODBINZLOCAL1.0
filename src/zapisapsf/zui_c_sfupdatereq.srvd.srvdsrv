@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for SF Update Reqs'
+define service ZUI_C_SFUPDATEREQ {
+  expose ZC_SFUPDATEREQ as SFUpdateReqProcessor;
+}

@@ -1,0 +1,19 @@
+managed implementation in class zbp_i_sfrqapi unique;
+//strict ( 2 );
+
+define behavior for ZI_SFRQAPI alias SalesForceRequestAPI
+persistent table ztsfrqapi
+lock master
+//authorization master ( instance )
+//etag master created_at
+{
+  field ( readonly:update ) businesspartnerid;
+  field (mandatory: create, readonly:update) salesforceaccountid;
+  create;
+  update;
+  delete;
+validation ValidateBusinessPartnerID on save {create; field salesforceaccountid;}
+determination UpdateAuthToken on save {field salesforceaccountid, mykey;}
+determination Updatefirstname on modify { field firstname;}
+action SetUpdateAuthToken;
+}

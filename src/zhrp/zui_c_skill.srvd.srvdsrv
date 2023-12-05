@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Skill'
+define service ZUI_C_SKILL {
+  expose ZC_SKILL as SkillProcessor;
+}

@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Organizational Structure'
+define service ZUI_C_ORG {
+  expose ZC_ORG as OrgProcessor;
+}

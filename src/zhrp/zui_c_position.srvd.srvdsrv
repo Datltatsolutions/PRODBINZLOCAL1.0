@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Definition for Positon'
+define service ZUI_C_POSITION {
+  expose ZC_POSITION as PositionProcessor;
+  expose ZI_EMPLOYEE as Employee;
+  expose ZI_JOB      as Job;
+  expose ZI_ORG      as Org;
+}

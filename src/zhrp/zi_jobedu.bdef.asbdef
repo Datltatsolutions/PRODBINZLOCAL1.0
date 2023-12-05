@@ -1,0 +1,23 @@
+managed implementation in class zbp_i_jobedu unique;
+
+define behavior for ZI_JOBEDU alias JobEducation
+persistent table ztjobedu
+etag master last_changed_at
+lock master
+{
+  field ( readonly, numbering : managed ) mykey;
+  field ( mandatory:create, readonly:update ) jobid, eduid;
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by, jobname, eduname;
+
+  create;
+  update;
+  delete;
+
+  // validations
+  validation validateJob on save { field jobid; }
+  validation validateEducation on save { field eduid; }
+  validation validateUniqueIDs on save { field jobid, eduid; }
+  validation validateEduLevel on save { field edulevel; }
+  determination JobNameUpdate on save {field jobid;}
+  determination EducationNameUpdate on save{field eduid;}
+}

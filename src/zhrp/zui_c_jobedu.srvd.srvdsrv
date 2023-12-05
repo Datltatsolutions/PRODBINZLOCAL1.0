@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Definition for Job Education'
+define service ZUI_C_JOBEDU {
+  expose ZC_JOBEDU               as JobEduProcessor;
+  expose ZI_JOB                  as Job;
+  expose ZI_EDUCATION            as Education;
+  expose ZI_READ_EDULEVEL_DOMAIN;
+}

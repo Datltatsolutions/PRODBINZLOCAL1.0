@@ -1,0 +1,22 @@
+managed implementation in class zbp_i_empcert unique;
+
+define behavior for ZI_EMPCERT alias EmployeeCertificate
+persistent table ztempcert
+etag master last_changed_at
+lock master
+{
+  field ( readonly, numbering : managed ) mykey;
+  field ( mandatory : create, readonly : update ) empid;
+  field ( readonly : update ) certid;
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by;
+
+  create;
+  update;
+  delete;
+
+  // validations
+  validation validateEmployee on save { field empid; }
+  validation validateCertificate on save { field certid; }
+  validation validateUniqueIDs on save { field empid, certid; }
+  validation validateDates on save { field certid, certstart, certend; }
+}

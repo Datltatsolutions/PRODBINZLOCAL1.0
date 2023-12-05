@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Storage Key ID'
+define service ZUI_C_STORAGEKEYID {
+  expose ZC_STORAGEKEYID as StorageKeyIDProcessor;
+}

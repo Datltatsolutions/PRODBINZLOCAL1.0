@@ -1,0 +1,19 @@
+managed implementation in class zbp_i_boo unique;
+
+define behavior for ZI_BOO alias BOO
+persistent table ztboo
+etag master last_changed_at
+lock master
+{
+  field ( readonly, numbering : managed ) mykey;
+  field ( readonly: update, mandatory: create ) booproductid;
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by;
+
+  create;
+  update;
+  delete;
+
+  validation validateJob on save { field boojob; }
+  validation validateDropdownFields on save { field boounit, bootype; }
+  validation validateDaysandHours on save { field booworkingtime, booduration; }
+}

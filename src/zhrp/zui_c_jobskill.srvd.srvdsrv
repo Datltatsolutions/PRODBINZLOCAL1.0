@@ -1,0 +1,7 @@
+@EndUserText.label: 'Service Definition for Job Skill'
+define service ZUI_C_JOBSKILL {
+  expose ZC_JOBSKILL              as JobSkillProcessor;
+  expose ZI_JOB                   as Job;
+  expose ZI_SKILL                 as Skill;
+  expose ZI_READ_LEVELNUM5_DOMAIN;
+}

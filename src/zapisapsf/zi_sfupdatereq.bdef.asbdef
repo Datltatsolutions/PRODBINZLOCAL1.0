@@ -1,0 +1,16 @@
+managed implementation in class zbp_i_sfupdatereq unique;
+// strict ( 2 );
+
+define behavior for ZI_SFUPDATEREQ alias SFUpdateReq
+persistent table ztsfupdatereq
+lock master
+// authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+
+  determination setDefaultApprove on save { field checkapprove; create; }
+  action (features: instance) approveRequest result [1] $self;
+}

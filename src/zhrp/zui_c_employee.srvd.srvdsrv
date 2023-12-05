@@ -1,0 +1,10 @@
+@EndUserText.label: 'Service Definition for Employee'
+define service ZUI_C_EMPLOYEE {
+  expose ZC_EMPLOYEE              as EmployeeProcessor;
+  expose I_CountryVH;
+  expose ZI_READ_AGREEMENT_DOMAIN;
+  expose ZI_READ_GENDER_DOMAIN;
+  expose ZI_READ_MARITAL_DOMAIN;
+  expose ZI_READ_ORGUNIT_DOMAIN;
+  expose ZI_READ_TITLE_DOMAIN;
+}

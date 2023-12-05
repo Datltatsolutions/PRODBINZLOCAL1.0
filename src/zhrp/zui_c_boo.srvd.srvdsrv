@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Definition for Bill of Operation'
+define service ZUI_C_BOO {
+  expose ZC_BOO              as BOOProcessor;
+  expose ZI_READ_UNIT_DOMAIN;
+  expose ZI_READ_TYPE_DOMAIN;
+}

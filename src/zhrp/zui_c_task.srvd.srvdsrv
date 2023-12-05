@@ -1,0 +1,9 @@
+@EndUserText.label: 'Service Definition for Task Management'
+define service ZUI_C_TASK {
+  expose ZC_TASK                     as TaskProcessor;
+  expose ZI_EMPLOYEE                 as Employee;
+  expose ZI_BOO                      as BOO;
+  expose ZI_READ_TASKPRIORITY_DOMAIN;
+  expose ZI_READ_TASKPROGRESS_DOMAIN;
+  expose ZI_READ_TASKSTATUS_DOMAIN;
+}

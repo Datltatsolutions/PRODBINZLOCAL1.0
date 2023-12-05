@@ -1,0 +1,24 @@
+managed implementation in class zbp_i_empedu unique;
+
+define behavior for ZI_EMPEDU alias EmployeeEducation
+persistent table ztempedu
+etag master last_changed_at
+lock master
+{
+  field ( readonly, numbering : managed ) mykey;
+  field ( mandatory:create, readonly:update ) empid, eduid;
+  field ( readonly ) last_changed_at, last_changed_by, created_at, created_by, empname, empeduname;
+
+  create;
+  update;
+  delete;
+
+  // validations
+  validation validateEmployee on save { field empid; }
+  validation validateEducation on save { field eduid; }
+  validation validateUniqueIDs on save { field empid, eduid; }
+  validation validateDates on save { field empedustart, empeduend; }
+  validation validateGrade on save { field empedugrade; }
+  determination EmployeeNameUpdate on save {field empid;}
+  determination EducationNameUpdate on save {field eduid;}
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service Definition for Emp Cert'
+define service ZUI_C_EMPCERT {
+  expose ZC_EMPCERT     as EmpCertProcessor;
+  expose ZI_EMPLOYEE    as Employee;
+  expose ZI_CERTIFICATE as Certificate;
+}
